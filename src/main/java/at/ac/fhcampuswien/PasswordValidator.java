@@ -22,4 +22,16 @@ public class PasswordValidator {
         }
         return false;
     }
+
+    public boolean numbers(String password){
+        char[] number = password.toCharArray();
+        for(char c : number){
+            if(Character.isDigit(c)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
