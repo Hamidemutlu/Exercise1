@@ -73,15 +73,15 @@ public class PasswordValidatorTest {
     @DisplayName("")
     public void specialCharacters1(){
         PasswordValidator p = new PasswordValidator();
-        boolean actual = p.specialCharacters1("BBaaCCdd?!");
+        boolean actual = p.specialCharacters("BBaaCCdd?!");
         assertTrue(actual);
     }
 
     @Test
     @DisplayName("")
-    public void specialCharacters1(){
+    public void specialCharacters2(){
         PasswordValidator p = new PasswordValidator();
-        boolean actual = p.specialCharacters1("BBaaCCddB");
+        boolean actual = p.specialCharacters("BBaaCCddB");
         assertFalse(actual);
     }
 }

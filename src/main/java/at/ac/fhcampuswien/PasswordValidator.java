@@ -33,5 +33,17 @@ public class PasswordValidator {
         return false;
     }
 
+    public boolean specialCharacters(String password){
+       String specialChars = "~`!@#$%^&*()-_=+\\|[{]};:'\",<.>/?";
+       char currentCharakter;
+
+       for(int i = 0; i < password.length(); i++){
+           currentCharakter = password.charAt(i);
+           if( specialChars.contains(String.valueOf(currentCharakter))){
+               return true;
+           }
+       }
+       return false;
+    }
 
 }
