@@ -31,9 +31,39 @@ public class PasswordValidatorTest {
 
     @Test
     @DisplayName("")
-    public void letter1(){
+    public void upLowCase1(){
         PasswordValidator p = new PasswordValidator();
-        boolean actual = p.letter("124530480986Ba?30324809");
+        boolean actual = p.upLowCase("124530480986Ba?30324809");
         assertTrue(actual);
+    }
+
+    @Test
+    @DisplayName("")
+    public void upLowCase2(){
+        PasswordValidator p = new PasswordValidator();
+        boolean actual = p.upLowCase("124530480986BBB30324809");
+        assertFalse(actual);
+    }
+
+    @Test
+    @DisplayName("")
+    public void upLowCase3(){
+        PasswordValidator p = new PasswordValidator();
+        boolean actual = p.upLowCase("124530480986aaa30324809");
+        assertFalse(actual);
+    }
+
+    @Test
+    @DisplayName("")
+    public void numbers1(){
+        PasswordValidator p = new PasswordValidator();
+        boolean actual = p.numbers("124530480986Ba?30324809");
+        assertTrue(actual);
+    }
+
+    public void numbers2(){
+        PasswordValidator p = new PasswordValidator();
+        boolean actual = p.numbers("BBaaCCdd?*");
+        assertFalse(actual);
     }
 }
