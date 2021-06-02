@@ -23,47 +23,68 @@ public class PasswordValidator {
         return false;
     }
 
-    public boolean numbers(String password){
+    public boolean numbers(String password) {
         char[] number = password.toCharArray();
-        for(char c : number){
-            if(Character.isDigit(c)){
+        for (char c : number) {
+            if (Character.isDigit(c)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean specialCharacters(String password){
-       String specialChars = "~`!@#$%^&*()-_=+\\|[{]};:'\",<.>/?";
-       char currentCharakter;
+    public boolean specialCharacters(String password) {
+        String specialChars = "~`!@#$%^&*()-_=+\\|[{]};:'\",<.>/?";
+        char currentCharakter;
 
-       for(int i = 0; i < password.length(); i++){
-           currentCharakter = password.charAt(i);
-           if( specialChars.contains(String.valueOf(currentCharakter))){
-               return true;
-           }
-       }
-       return false;
+        for (int i = 0; i < password.length(); i++) {
+            currentCharakter = password.charAt(i);
+            if (specialChars.contains(String.valueOf(currentCharakter))) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean notmoreTwoNuminOrder(String password){
+    public boolean notmoreTwoNuminOrder(String password) {
         int counter = 0;
         char previous = password.charAt(0);
 
-        for(int i = 0; i < password.length(); i++) {
+        for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
             if (Character.isDigit(c)) {
                 if (previous + 1 == c) {
-                        counter++;
+                    counter++;
                 } else {
-                        counter = 1;
+                    counter = 1;
                 }
                 if (counter >= 3) {
                     return false;
                 }
                 previous = c;
-                }
             }
-            return true;
         }
+        return true;
+    }
+
+    public boolean morethan3times(String password){
+    int counter = 0;
+    char previous = password.charAt(0);
+
+        for(int i = 0; i < password.length(); i++) {
+        char c = password.charAt(i);
+        if (Character.isDigit(c)) {
+            if (previous == c) {
+                counter++;
+            } else {
+                counter = 1;
+            }
+            if (counter > 3) {
+                return false;
+            }
+            previous = c;
+        }
+    }
+        return true; }
 }
+
