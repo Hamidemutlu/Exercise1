@@ -84,4 +84,28 @@ public class PasswordValidatorTest {
         boolean actual = p.specialCharacters("BBaaCCddB");
         assertFalse(actual);
     }
+
+    @Test
+    @DisplayName("")
+    public void notmoreTwoNuminOrder1(){
+        PasswordValidator p = new PasswordValidator();
+        boolean actual = p.notmoreTwoNuminOrder("11247Ba9312?!");
+        assertTrue(actual);
+    }
+
+    @Test
+    @DisplayName("")
+    public void notmoreTwoNuminOrder2(){
+        PasswordValidator p = new PasswordValidator();
+        boolean actual = p.notmoreTwoNuminOrder("11247Ba931234?!");
+        assertFalse(actual);
+    }
+
+    @Test
+    @DisplayName("")
+    public void morethan3times(String password){
+        PasswordValidator p= new PasswordValidator();
+        boolean actual = p.morethan3times("111308305805");
+        assertTrue(actual);
+    }
 }

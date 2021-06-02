@@ -46,4 +46,24 @@ public class PasswordValidator {
        return false;
     }
 
+    public boolean notmoreTwoNuminOrder(String password){
+        int counter = 0;
+        char previous = password.charAt(0);
+
+        for(int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isDigit(c)) {
+                if (previous + 1 == c) {
+                        counter++;
+                } else {
+                        counter = 1;
+                }
+                if (counter >= 3) {
+                    return false;
+                }
+                previous = c;
+                }
+            }
+            return true;
+        }
 }
